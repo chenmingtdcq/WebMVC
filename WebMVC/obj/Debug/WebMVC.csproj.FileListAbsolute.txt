@@ -71,3 +71,4 @@ F:\program\practice\WebMVC\WebMVC\bin\zh-Hans\System.Web.WebPages.Deployment.res
 F:\program\practice\WebMVC\WebMVC\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
 F:\program\practice\WebMVC\WebMVC\obj\Debug\WebMVC.dll
 F:\program\practice\WebMVC\WebMVC\obj\Debug\WebMVC.pdb
+F:\program\practice\WebMVC\WebMVC\obj\Debug\WebMVC.csprojResolveAssemblyReference.cache

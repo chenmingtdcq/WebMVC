@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+@using WebMVC.ViewModel
+@model EmployeeInfo
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    Hello :@Model.UserName
+    <hr />
+    <div>
+        <b>Employee Details:</b><br />
+        Employee Name: @Model.EmployeeName<br />
+        <span style="background-color:@Model.SalaryColor">
+            Employee Salary: @Model.EmployeeSalary
+        </span>
+    </div>
+</body>
+</html>
