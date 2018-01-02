@@ -35,25 +35,47 @@ namespace WebMVC.Controllers
         //    return View("ModelView",emp);
         //}
 
+        //public ActionResult GetView()
+        //{
+        //    Employee emp = new Employee();
+        //    emp.FirstName = "Sukesh";
+        //    emp.LasrName = "Marla";
+        //    emp.Salary = 20000;
+
+        //    EmployeeInfo info = new EmployeeInfo()
+        //    {
+        //        EmployeeName = emp.FirstName + emp.LasrName,
+        //        EmployeeSalary = emp.Salary.ToString(),
+        //        UserName = "Admin",
+        //    };
+        //    if (emp.Salary > 15000)
+        //        info.SalaryColor = "red";
+        //    else
+        //        info.SalaryColor = "yellow";
+
+        //    return View("ViewModelView", info);
+        //}
+
         public ActionResult GetView()
         {
-            Employee emp = new Employee();
-            emp.FirstName = "Sukesh";
-            emp.LasrName = "Marla";
-            emp.Salary = 20000;
-
-            EmployeeInfo info = new EmployeeInfo()
+            List<Employee> listEmployee = new EmployeeBusinessLayer().GetEmployee();
+            List<EmployeeInfo> employeeInfos = new List<EmployeeInfo>();
+            EmployeeInfo info;
+            listEmployee.ForEach(c =>
             {
-                EmployeeName = emp.FirstName + emp.LasrName,
-                EmployeeSalary = emp.Salary.ToString(),
-                UserName = "Admin",
-            };
-            if (emp.Salary > 15000)
-                info.SalaryColor = "red";
-            else
-                info.SalaryColor = "yellow";
+                info = new EmployeeInfo()
+                {
+                    EmployeeName = c.FirstName + " " + c.LasrName,
+                    EmployeeSalary = c.Salary.ToString(),
+                    SalaryColor = c.Salary > 15000 ? "red" : "green"
+                };
+                employeeInfos.Add(info);
+            });
+            EmployeeListInfo employees = new EmployeeListInfo();
+            employees.ListEmployee = employeeInfos;
+            employees.UserName = "Admin";
 
-            return View("ViewModelView", info);
+            return View("ListViewModelView", employees);
         }
 
         public Customer GetCustomer()

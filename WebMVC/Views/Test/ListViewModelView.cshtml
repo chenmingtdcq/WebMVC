@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using WebMVC.ViewModel
+@model EmployeeListInfo
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListViewModelView</title>
+</head>
+<body>
+    Hello : @Model.UserName
+    <hr />
+    <div>
+        <table border="1">
+            <tr>
+                <th>Employee Name</th>
+                <th>Salary</th>
+            </tr>
+            @foreach (var item in Model.ListEmployee)
+            {
+                <tr>
+                    <td>@item.EmployeeName</td>
+                    <td style="background-color:@item.SalaryColor">@item.EmployeeSalary</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
